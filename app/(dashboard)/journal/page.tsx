@@ -16,9 +16,7 @@ const getEntries = async () => {
     },
   })
 
-  await analyze(
-    "I'm feeling great today! I had a great day at work and I'm looking forward to the weekend. I'm going to go to the beach and relax. :)"
-  )
+  await analyze('Give me a motivational quote.')
 
   return entries
 }
