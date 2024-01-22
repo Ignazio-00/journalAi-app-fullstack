@@ -16,8 +16,6 @@ const getEntries = async () => {
     },
   })
 
-  await analyze('Give me a motivational quote.')
-
   return entries
 }
 
