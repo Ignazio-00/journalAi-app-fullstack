@@ -1,5 +1,6 @@
 import EntryCard from '@/components/EntryCard'
 import NewEntryCard from '@/components/NewEntryCard'
+import Question from '@/components/Question'
 import { analyze } from '@/utils/ai'
 import { getUserByClerkId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
@@ -22,8 +23,11 @@ const getEntries = async () => {
 const JournalPage = async () => {
   const entries = await getEntries()
   return (
-    <div className="p-10 bg-sky-600/50 h-full">
+    <div className="p-10 bg-slate-300 h-full">
       <h2 className="text-3xl mb-8 ">Journal</h2>
+      <div className="my-8">
+        <Question />
+      </div>
       <div className="grid grid-cols-3 gap-4">
         <NewEntryCard />
         {entries.map((entry) => (
