@@ -1,5 +1,3 @@
-
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,6 +6,15 @@ datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
+}
+
+model Account {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  // stripeCustomerId String @unique
+
+  @@unique([userId])
 }
 
 model User {
@@ -19,6 +26,7 @@ model User {
   email    String         @unique
   entries  JournalEntry[]
   analysen Analysis[]
+  Account  Account?
 }
 
 model JournalEntry {
